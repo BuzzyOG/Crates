@@ -1,0 +1,7 @@
+main: red.reddington.Crates.Crates
+name: Crates
+version: 1.0
+author: RenegadeEagle
+commands:
+  crate:
+    description: Base command for crates

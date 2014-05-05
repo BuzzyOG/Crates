@@ -1,0 +1,8 @@
+keys:
+  default:
+    task1:
+      commands:
+        - give {name} diamond 50
+    task2:
+      items:
+        - 32
