@@ -75,4 +75,11 @@ public class KeyManager {
             throw new NotValidKeyException("Not a valid key type!");
         }
     }
+    public boolean keyExists(String keytype){
+        if(Arrays.asList(getLoadedKeys()).contains(keytype)) {
+            return true;
+        }else{
+            return false;
+        }
+    }
 }

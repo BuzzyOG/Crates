@@ -3,5 +3,5 @@ name: Crates
 version: 1.0
 author: RenegadeEagle
 commands:
-  crate:
+  crates:
     description: Base command for crates

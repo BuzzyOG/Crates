@@ -5,6 +5,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import red.reddington.Crates.Cmds.CmdCrate;
 import red.reddington.Crates.config.KeyStatsConfig;
 import red.reddington.Crates.keys.KeyManager;
+import red.reddington.Crates.listeners.BlockPlaceListener;
 import red.reddington.Crates.listeners.PlayerInteractListener;
 import red.reddington.Crates.listeners.PlayerJoinListener;
 
@@ -21,29 +22,29 @@ public class Crates extends JavaPlugin{
     private static List<String> loadedKeyNames = new ArrayList<String>();
     KeyStatsConfig ksc = new KeyStatsConfig(this);
     private KeyManager keymanager = new KeyManager(this);
+    private CrateManager crateManager = new CrateManager(this);
     public void onEnable(){
         instance = this;
         this.saveDefaultConfig();
         this.getConfig().options().copyDefaults(true);
-        getCommand("crate").setExecutor(new CmdCrate());
+        getCommand("crates").setExecutor(new CmdCrate());
         ksc.saveDefaultKeyConfig();
         ksc.getConfig().options().copyDefaults(true);
         this.registerEvents();
         Bukkit.getLogger().log(Level.INFO, keymanager.getLoadedKeys().length +" key's loaded!");
 
     }
+
     public void onDisable(){
         instance = null;
-        keymanager = null;
     }
-
     public static Crates getInstance() {
         return instance;
     }
-
     public void registerEvents(){
         this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
         this.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
+        this.getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
     }
 
     public static List<String> getLoadedKeyNames() {
@@ -56,5 +57,9 @@ public class Crates extends JavaPlugin{
 
     public KeyManager getKeyManager() {
         return keymanager;
+    }
+
+    public CrateManager getCrateManager() {
+        return crateManager;
     }
 }

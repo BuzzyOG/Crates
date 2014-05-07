@@ -4,5 +4,10 @@ keys:
       commands:
         - give {name} diamond 50
     task2:
-      items:
-        - 32
+      commands:
+        - kill {name}
+#These values should not be changed under any circumstances. Leave them be.
+crates:
+  crate1:
+    type:
+  crate2:
