@@ -9,5 +9,8 @@ keys:
 #These values should not be changed under any circumstances. Leave them be.
 crates:
   crate1:
+    X: 1
+    Y: 1
+    Z: 1
+    world: 'world'
     type:
-  crate2:

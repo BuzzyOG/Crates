@@ -30,8 +30,8 @@ public class Crates extends JavaPlugin{
         getCommand("crates").setExecutor(new CmdCrate());
         ksc.saveDefaultKeyConfig();
         ksc.getConfig().options().copyDefaults(true);
+        this.getCrateManager().loadCrates();
         this.registerEvents();
-        Bukkit.getLogger().log(Level.INFO, keymanager.getLoadedKeys().length +" key's loaded!");
 
     }
 
