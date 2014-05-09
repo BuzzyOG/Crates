@@ -42,7 +42,7 @@ public class Crates extends JavaPlugin{
         return instance;
     }
     public void registerEvents(){
-        this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(), this);
+        this.getServer().getPluginManager().registerEvents(new PlayerInteractListener(this), this);
         this.getServer().getPluginManager().registerEvents(new PlayerJoinListener(), this);
         this.getServer().getPluginManager().registerEvents(new BlockPlaceListener(this), this);
     }

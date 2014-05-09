@@ -39,6 +39,9 @@ public class KeyManager {
     /**
      * Add keys to a user
      */
+    public int getKeys(Player p, String keytype){
+        return instance.getConfig().getInt(p.getUniqueId()+"."+keytype);
+    }
     public void addKeys(Player p, String keytype, int amount){
         if(Arrays.asList(getLoadedKeys()).contains(keytype)){
             if(instance.getKeyConfig().getConfig().contains(p.getUniqueId().toString())){

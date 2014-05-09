@@ -1,9 +1,9 @@
 keys:
   default:
-    task1:
+    task0:
       commands:
         - give {name} diamond 50
-    task2:
+    task1:
       commands:
         - kill {name}
 #These values should not be changed under any circumstances. Leave them be.
