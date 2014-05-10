@@ -26,40 +26,24 @@ public class CmdCrate implements CommandExecutor {
                 if (args.length == 0) {
                     player.sendMessage(ChatColor.RED + "Error: Not enough arguments. Do /crate help for help!");
                 }
-                if(args.length > 0){
-                    if (args[0].equalsIgnoreCase("give")) {
-                        if (player.hasPermission("crates.give")) {
-                            try {
-                                String giveTo = args[1];
-                                String key = args[2];
-                                int keyAmount = Integer.parseInt(args[3]);
-                                Player playerTo = Bukkit.getPlayer(giveTo);
-                                UUID uniqueID = player.getUniqueId();
-                                String uniequeIDString = uniqueID.toString();
-                                instance.getKeyManager().addKeys(playerTo, key, keyAmount);
-                            } catch (Exception ex) {
-                                player.sendMessage(ChatColor.RED + "Error: Inorrect args. Do /crate help!");
-                            }
-                        }
-                    }
-                    if(args[0].equalsIgnoreCase("create")){
-                        if(player.hasPermission("crates.create")){  //Crate create {keyname}
-                            if(instance.getKeyManager().keyExists(args[1]) && !instance.getCrateManager().isInCrateCreateMode(player)){
-                                player.sendMessage(ChatColor.RED+"You have received a chest in your inventory. Every chest you place will be treated and saved as a crate. Do /crates exit to get out of this mode!");
-                                instance.getCrateManager().addToCrateMode(player, args[1]);
-                                player.getInventory().addItem(new ItemStack(Material.CHEST));
-                            }else{
-                                player.sendMessage(ChatColor.RED+"Error: You cannot create a a crate at this time.");
-                            }
-                        }
-                    }
-                    if(args[0].equalsIgnoreCase("exit")){
-                        if(instance.getCrateManager().isInCrateCreateMode(player)){
-                            instance.getCrateManager().removeFromCrateCreateMode(player);
-                            player.sendMessage(ChatColor.RED+"You have been removed from crate mode.");
+                if(args[0].equalsIgnoreCase("create")){
+                    if(player.hasPermission("crates.create")){  //Crate create {keyname}
+                        if(instance.getKeyManager().keyExists(args[1]) && !instance.getCrateManager().isInCrateCreateMode(player)){
+                            player.sendMessage(ChatColor.RED+"You have received a chest in your inventory. Every chest you place will be treated and saved as a crate. Do /crates exit to get out of this mode!");
+                            instance.getCrateManager().addToCrateMode(player, args[1]);
+                            player.getInventory().addItem(new ItemStack(Material.CHEST));
+                        }else{
+                            player.sendMessage(ChatColor.RED+"Error: You cannot create a a crate at this time.");
                         }
                     }
                 }
+                if(args[0].equalsIgnoreCase("exit")){
+                    if(instance.getCrateManager().isInCrateCreateMode(player)){
+                        instance.getCrateManager().removeFromCrateCreateMode(player);
+                        player.sendMessage(ChatColor.RED+"You have been removed from crate mode.");
+                    }
+                }
+
             }
         }
         return false;
