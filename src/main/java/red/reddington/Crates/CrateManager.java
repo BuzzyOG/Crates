@@ -1,4 +1,4 @@
-package red.reddington.Crates;
+package red.reddington.crates;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -103,7 +103,7 @@ public class CrateManager {
     }
 
     /**
-     * Method that runs to call
+     * Method that runs to call to run a random task.
      * @param keytype
      * @param p
      */
@@ -111,14 +111,10 @@ public class CrateManager {
         Random random = new Random();
         int loadedtasks = instance.getConfig().getConfigurationSection("keys."+keytype).getKeys(false).size();
         int taskid = random.nextInt(loadedtasks);
-        System.out.println(taskid);
-        System.out.println(instance.getConfig().getStringList("keys."+keytype+".task"+taskid+".commands"));
-                                                                      // keys. default. task1. commands
-        //System.out.println(instance.getConfig().getConfigurationSection("keys."+keytype+".task"+taskid+".commands").getCurrentPath());
-
         for(String task: instance.getConfig().getStringList("keys."+keytype+".task"+taskid+".commands")){
             task = task.replace("{name}", p.getName());
             Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), task);
         }
     }
+
 }

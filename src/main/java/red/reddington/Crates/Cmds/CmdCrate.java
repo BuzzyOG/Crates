@@ -1,4 +1,4 @@
-package red.reddington.Crates.Cmds;
+package red.reddington.crates.cmds;
 
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -7,9 +7,8 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
-import red.reddington.Crates.Crates;
+import red.reddington.crates.Crates;
 
 import java.util.UUID;
 
@@ -52,6 +51,12 @@ public class CmdCrate implements CommandExecutor {
                             }else{
                                 player.sendMessage(ChatColor.RED+"Error: You cannot create a a crate at this time.");
                             }
+                        }
+                    }
+                    if(args[0].equalsIgnoreCase("exit")){
+                        if(instance.getCrateManager().isInCrateCreateMode(player)){
+                            instance.getCrateManager().removeFromCrateCreateMode(player);
+                            player.sendMessage(ChatColor.RED+"You have been removed from crate mode.");
                         }
                     }
                 }

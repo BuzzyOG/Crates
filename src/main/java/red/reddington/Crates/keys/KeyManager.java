@@ -1,11 +1,10 @@
-package red.reddington.Crates.keys;
+package red.reddington.crates.keys;
 
 import org.bukkit.entity.Player;
-import red.reddington.Crates.Crates;
-import red.reddington.Crates.Exceptions.NotValidKeyException;
-import red.reddington.Crates.Exceptions.UserNotFoundException;
+import red.reddington.crates.Crates;
+import red.reddington.crates.exceptions.NotValidKeyException;
+import red.reddington.crates.exceptions.UserNotFoundException;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
@@ -40,7 +39,7 @@ public class KeyManager {
      * Add keys to a user
      */
     public int getKeys(Player p, String keytype){
-        return instance.getConfig().getInt(p.getUniqueId()+"."+keytype);
+        return instance.getKeyConfig().getConfig().getInt(p.getUniqueId()+"."+keytype);
     }
     public void addKeys(Player p, String keytype, int amount){
         if(Arrays.asList(getLoadedKeys()).contains(keytype)){

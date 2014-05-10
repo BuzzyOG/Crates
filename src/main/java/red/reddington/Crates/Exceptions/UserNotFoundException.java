@@ -1,4 +1,4 @@
-package red.reddington.Crates.Exceptions;
+package red.reddington.crates.exceptions;
 
 /**
  * Created by Ryan on 5/4/2014.

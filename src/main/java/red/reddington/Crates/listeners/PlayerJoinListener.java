@@ -1,9 +1,9 @@
-package red.reddington.Crates.listeners;
+package red.reddington.crates.listeners;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
-import red.reddington.Crates.Crates;
+import red.reddington.crates.Crates;
 
 /**
  * Created by Ryan on 5/4/2014.

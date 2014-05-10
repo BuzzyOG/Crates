@@ -1,7 +1,11 @@
-main: red.reddington.Crates.Crates
+main: red.reddington.crates.Crates
 name: Crates
 version: 1.0
 author: RenegadeEagle
 commands:
   crates:
     description: Base command for crates
+  cmessage:
+    description: Command to send players messages raw.
+  keys:
+    description: Key methods to add/take keys

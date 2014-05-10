@@ -1,12 +1,9 @@
-package red.reddington.Crates.util;
+package red.reddington.crates.util;
 
-import org.bukkit.Bukkit;
 import org.bukkit.Location;
-import red.reddington.Crates.Crates;
+import red.reddington.crates.Crates;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 /**

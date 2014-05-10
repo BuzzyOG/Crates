@@ -1,13 +1,12 @@
-package red.reddington.Crates.config;
+package red.reddington.crates.config;
 
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
-import red.reddington.Crates.Crates;
+import red.reddington.crates.Crates;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.security.Key;
 import java.util.logging.Level;
 
 /**

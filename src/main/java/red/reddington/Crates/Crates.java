@@ -1,17 +1,17 @@
-package red.reddington.Crates;
+package red.reddington.crates;
 
-import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
-import red.reddington.Crates.Cmds.CmdCrate;
-import red.reddington.Crates.config.KeyStatsConfig;
-import red.reddington.Crates.keys.KeyManager;
-import red.reddington.Crates.listeners.BlockPlaceListener;
-import red.reddington.Crates.listeners.PlayerInteractListener;
-import red.reddington.Crates.listeners.PlayerJoinListener;
+import red.reddington.crates.cmds.CmdCMessage;
+import red.reddington.crates.cmds.CmdCrate;
+import red.reddington.crates.cmds.CmdKeys;
+import red.reddington.crates.config.KeyStatsConfig;
+import red.reddington.crates.keys.KeyManager;
+import red.reddington.crates.listeners.BlockPlaceListener;
+import red.reddington.crates.listeners.PlayerInteractListener;
+import red.reddington.crates.listeners.PlayerJoinListener;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 
 /**
  * Created by Ryan on 5/3/2014.
@@ -28,11 +28,12 @@ public class Crates extends JavaPlugin{
         this.saveDefaultConfig();
         this.getConfig().options().copyDefaults(true);
         getCommand("crates").setExecutor(new CmdCrate());
+        getCommand("cmessage").setExecutor(new CmdCMessage());
+        getCommand("keys").setExecutor(new CmdKeys());
         ksc.saveDefaultKeyConfig();
         ksc.getConfig().options().copyDefaults(true);
         this.getCrateManager().loadCrates();
         this.registerEvents();
-
     }
 
     public void onDisable(){
