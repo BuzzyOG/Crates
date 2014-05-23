@@ -43,7 +43,6 @@ public class CmdCrate implements CommandExecutor {
                         player.sendMessage(ChatColor.RED+"You have been removed from crate mode.");
                     }
                 }
-
             }
         }
         return false;

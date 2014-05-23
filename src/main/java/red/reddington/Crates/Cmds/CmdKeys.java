@@ -21,7 +21,7 @@ public class CmdKeys implements CommandExecutor {
             if(sender.hasPermission("crates.admin")) { // We do not check if the sender is a player due to the fact people run these commands via console for buycraft and voting and whatnot
                 if (args.length > 3) {
                     try {
-                        Player addTo = Bukkit.getPlayer(args[1]);
+                        String addTo = args[1];
                         if (args[0].equalsIgnoreCase("give")) {
                             instance.getKeyManager().addKeys(addTo, args[2], Integer.parseInt(args[3]));
                             sender.sendMessage("Added keys successfully.");
@@ -35,7 +35,7 @@ public class CmdKeys implements CommandExecutor {
                             sender.sendMessage("Set keys successfully.");
                         }
                     }catch(Exception e){
-                        sender.sendMessage("Unable to add keys.");
+                        e.printStackTrace();
                     }
                 }
             }
