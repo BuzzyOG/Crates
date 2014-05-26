@@ -1,6 +1,6 @@
 main: red.reddington.crates.Crates
 name: Crates
-version: 1.0
+version: 0.0.3
 author: RenegadeEagle
 commands:
   crates:

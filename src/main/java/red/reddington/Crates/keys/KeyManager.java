@@ -44,7 +44,6 @@ public class KeyManager {
         return instance.getKeyConfig().getConfig().getInt( Bukkit.getOfflinePlayer(playername).getUniqueId()+"."+keytype);
     }
 
-    
     /**
      *
      *

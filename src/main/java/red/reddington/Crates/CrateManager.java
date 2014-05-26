@@ -55,7 +55,6 @@ public class CrateManager {
     public String[] getCrates(){
         instance.saveConfig();
         String[] arr = instance.getConfig().getConfigurationSection("crates").getKeys(false).toArray(new String[instance.getConfig().getConfigurationSection("crates").getKeys(false).size()]);
-        System.out.println(arr.toString());
         return arr;
     }
 
@@ -116,5 +115,4 @@ public class CrateManager {
             Bukkit.getServer().dispatchCommand(Bukkit.getServer().getConsoleSender(), task);
         }
     }
-
 }

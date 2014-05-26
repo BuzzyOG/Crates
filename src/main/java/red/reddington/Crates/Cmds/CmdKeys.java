@@ -1,6 +1,7 @@
 package red.reddington.crates.cmds;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -36,6 +37,19 @@ public class CmdKeys implements CommandExecutor {
                         }
                     }catch(Exception e){
                         e.printStackTrace();
+                    }
+                }
+                if(sender instanceof Player){
+                    Player player = (Player) sender;
+                    if(args.length == 0){
+                        if(player.hasPermission("crates.checkkeys")) {
+                            player.sendMessage(ChatColor.GREEN+"Your keys:");
+                            for(String key: instance.getKeyManager().getLoadedKeys()){
+                                player.sendMessage(ChatColor.RED+key+": " + instance.getKeyManager().getKeys(player.getName(), key));
+                            }
+                        }else{
+                            player.sendMessage(ChatColor.RED+"You do not have permission to check keys.");
+                        }
                     }
                 }
             }
